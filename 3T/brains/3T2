@@ -1,0 +1,23 @@
+import numpy as np
+import math,time,random
+
+def check_lines(B):
+    h = np.array([np.sum(B,axis=0)])
+    v = np.array([np.sum(B,axis=1)])
+    d1 = B[0:1,0:1] + B[1:2,1:2] + B[2:3,2:3]
+    d2 = B[0:1,2:3] + B[1:2,1:2] + B[2:3,0:1]
+    out = cona(cona(d2,h,1),cona(d1,v,1),1)
+    return out
+
+def optimal(B):
+    p = 2*(np.sum(B==1)<=np.sum(B==-1))-1
+    Ci = check_lines(B)
+
+    #first, can we win?        
+    #next, can they win?
+    #   Multiple 2s- can we block all?
+    #   One 2- block it
+    #       Can make 2(s) by doing so?
+
+    #next, can I make 2s?
+    #   how many?
