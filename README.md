@@ -9,13 +9,16 @@ The algorithm, analysis thereof, and further date are all included in the follow
 <h3>Mechanisms</h3>
 
 To mimic operant conditioning for behavior training, the Murin algorithm is built on Q Learning, with two specific augmentations:
+
 - Augmented states which are comprised of the observed state, and the previous action or state, to link together states in a sequential chain with a temporal, but relativistic mechanism
 - A memory-based reinforcement mechanism, where augmented-state/action pairs in a historical queue are all reinforced together at time of reward application, with decaying rewards applied to older pairs, in order to reinforce sequential action sequences as a group
+
 These mechanism together enable effective learning of sequential behavior series, and of identification of patterns over time and state spaces in tandem. The Murin agent is therefor able to successfully learn many problems which traditional reinforcement learning algorithms fail to solve, and often sustantially faster due to the overlapping rewards. Of special note, when the reward mechanisms encourage solutions, but do not provide negative reinforcement for unnecessary actions, the agents can learn what are, in essence, neuroses!
 
 
 <h3>Training Methods</h3>
 There are a wide range of training techniques which can be applied to Murin agents, especially due to their temporal characteristics. Some we use here are:
+
 - **Rewards for exploration**: Several of the tests herein apply rewards primarily for the agent detecting a state which it has not yet observed, or for uniform spanning coverage od state observations, in order to encourage exploration and find goal states more effectively. This is demonstrated in the maze problems especially.
 - **Rewards for state resolutions**: Rewarding the agent for changing deleterious states teaches it to effectively transition out of those states, and is an entirely internally driven reward mechanism. The robotic example implements this method.
 - **Rewards for goal reaching**: The standard approach, when the goal is reached, preceeding state choices are rewarded. The Sussman Anomaly experiments implement this mechanism.
